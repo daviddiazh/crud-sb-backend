@@ -19,23 +19,23 @@ public class UsuarioService {
         return (ArrayList<UsuarioModel>) usuarioRepository.findAll();
     }
 
-    public UsuarioModel guardarUsuario(UsuarioModel usuario){
-        return usuarioRepository.save(usuario);
+    public UsuarioModel guardarUsuario(UsuarioModel user){
+        return usuarioRepository.save(user);
     }
 
     public Optional<UsuarioModel> obtenerPorId(Long id){
         return usuarioRepository.findById(id);
     }
 
-    public ArrayList<UsuarioModel>  obtenerPorPrioridad(Integer prioridad) {
-        return usuarioRepository.findByPrioridad(prioridad);
+    public ArrayList<UsuarioModel>  obtenerPorPrioridad(Integer priority) {
+        return usuarioRepository.findByPrioridad(priority);
     }
 
     public boolean eliminarUsuario(Long id) {
         try{
             usuarioRepository.deleteById(id);
             return true;
-        }catch(Exception err){
+        }catch(Exception error){
             return false;
         }
     }

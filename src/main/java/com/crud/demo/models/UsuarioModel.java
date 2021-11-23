@@ -4,16 +4,20 @@ package com.crud.demo.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "user")
 public class UsuarioModel {
+
+    //DECLARACIÓN DE PRIORIDADES.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private long id;
-    private String nombre;
+    private String name;
     private String email;
-    private Integer prioridad;
+    private Integer priority;
+
+    //SETTERS Y GETTERS
 
     public long getId() {
         return id;
@@ -23,12 +27,12 @@ public class UsuarioModel {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -39,11 +43,11 @@ public class UsuarioModel {
         this.email = email;
     }
 
-    public Integer getPrioridad() {
-        return prioridad;
+    public Integer getPriority() {
+        return priority;
     }
 
-    public void setPrioridad(Integer prioridad) {
-        this.prioridad = prioridad;
+    public void setPriority(Integer priority) {
+        this.priority = priority;
     }
 }

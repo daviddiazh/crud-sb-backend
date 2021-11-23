@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/user")
 public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
@@ -20,8 +20,8 @@ public class UsuarioController {
     }
 
     @PostMapping()
-    public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuario){
-        return this.usuarioService.guardarUsuario(usuario);
+    public UsuarioModel guardarUsuario(@RequestBody UsuarioModel user){
+        return this.usuarioService.guardarUsuario(user);
     }
 
     @GetMapping( path = "/{id}" )
@@ -30,15 +30,15 @@ public class UsuarioController {
     }
 
     @GetMapping("/query")
-    public ArrayList<UsuarioModel> obtenerUsuarioPorPrioridad(@RequestParam("prioridad") Integer prioridad){
-        return this.usuarioService.obtenerPorPrioridad(prioridad);
+    public ArrayList<UsuarioModel> obtenerUsuarioPorPrioridad(@RequestParam("priority") Integer priority){
+        return this.usuarioService.obtenerPorPrioridad(priority);
     }
 
-    @DeleteMapping( path = "/{id" )
+    @DeleteMapping( path = "/{id}" )
     public String eliminarPorId(@PathVariable("id") Long id){
         boolean ok = this.usuarioService.eliminarUsuario(id);
         if(ok){
-            return "Se eliminó el usuario con id " + id;
+            return "Eel usuario con id " + id + " se elimino correctamente.";
         }else{
             return "No pudo eliminar el usuario con el id " + id;
         }
